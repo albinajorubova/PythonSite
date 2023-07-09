@@ -101,6 +101,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: end;
+  background-color: #000000;
 }
 
 footer h3 {

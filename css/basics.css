@@ -8,6 +8,9 @@ main {
   flex-direction: column;
   gap: 40px;
 }
+.mainSize {
+  height: 2315px;
+}
 .searchBasics input {
   width: 784px;
   height: 40px;

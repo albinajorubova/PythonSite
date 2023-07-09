@@ -31,7 +31,7 @@ header {
 }
 
 .pageTitle {
-  width: 40%;
+  width: 70%;
 }
 .theme:hover,
 .courseBlock:hover {
@@ -65,6 +65,7 @@ header {
 
 .searchBtn:active {
   background-color: rgba(179, 179, 179, 1);
+  color: rgba(255, 255, 255, 1);
 }
 
 .enter_signInForm:hover {

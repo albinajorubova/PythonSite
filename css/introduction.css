@@ -1,0 +1,95 @@
+.designation {
+  display: flex;
+  gap: 20px;
+}
+
+.example_designation {
+  width: 784px;
+  height: 100px;
+  flex-shrink: 0;
+  border-radius: 7px;
+  background: #4e4e4e;
+  padding: 0px 47px;
+  display: flex;
+  align-items: center;
+}
+
+.explanation_designation {
+  width: 784px;
+  height: 100px;
+  flex-shrink: 0;
+  border-radius: 7px;
+  background: #4e4e4e;
+  padding: 16px 71px 16px 36px;
+  display: flex;
+  align-items: center;
+  display: flex;
+  gap: 20px;
+}
+
+.explanation_designation svg {
+  align-self: flex-start;
+}
+
+.lessons_designation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.nav_lesson {
+  display: flex;
+  gap: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 24px;
+  width: 31.63%;
+  background: rgba(78, 78, 78, 1);
+  border-radius: 7px;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav_lesson p {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.codeExample {
+  width: 784px;
+  height: 717px;
+  padding: 10px;
+  border-radius: 7px;
+  background: #4e4e4e;
+}
+
+.btnQuestion {
+  border-radius: 7px;
+  background: #4e4e4e;
+  padding: 15px 285px;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.inputQuestion {
+  border-radius: 7px;
+  border: 1px solid #fff;
+  padding: 0px 20px 40px 20px;
+  width: 782px;
+  height: 104px;
+  position: absolute;
+  font-style: italic;
+}
+
+.iconSend {
+  position: relative;
+  top: 70%;
+  left: 95%;
+}
+
+.sendRequestBlock {
+  width: 782px;
+  height: 104px;
+}
