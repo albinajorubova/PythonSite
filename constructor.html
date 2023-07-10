@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="./css/basics.css" />
+    <link rel="stylesheet" href="./css/introduction.css" />
     <link rel="stylesheet" href="./css/constructor.css" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -28,15 +30,19 @@
     <div id="blocks-container"></div>
     <div class="btnBlock">
       <button onclick="createBlock()">Блок с текстом</button>
-      <button>Блок с кодом</button>
+      <button onclick="createBlock_TextBlock_CODE()">Блок с кодом</button>
       <button>Блок с икнокой и текстом</button>
       <button>Блок с ссылкой</button>
       <button>Блок с картинкой</button>
-      <button>Блок с чертой слева (Есть на скринах)</button>
+      <button onclick="createBlock_TextBlock_Line()">
+        Блок с чертой слева (Есть на скринах)
+      </button>
       <button>Блок с разделяющей линией</button>
       <button>Блок с заголовком (Большой текст)</button>
       <button>Сохранить</button>
     </div>
   </main>
+
   <script src="./js/constructor.js"></script>
+  <script src="./js/colorIntrod.js"></script>
 </html>
