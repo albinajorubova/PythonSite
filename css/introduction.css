@@ -11,7 +11,8 @@
   background: #4e4e4e;
   padding: 0px 47px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .explanation_designation {
@@ -118,4 +119,12 @@
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
+}
+
+.green-text {
+  color: rgba(106, 135, 89, 1);
+}
+
+.orange-text {
+  color: rgba(201, 119, 48, 1);
 }
