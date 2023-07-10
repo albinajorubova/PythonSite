@@ -1,0 +1,19 @@
+.btnBlock {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+  margin-top: 90px;
+}
+
+.btnBlock button {
+  width: auto;
+  padding: 10px 20px;
+  color: rgba(239, 239, 239, 1);
+  background-color: rgba(78, 78, 78, 1);
+  border-radius: 7px;
+}
+
+.btnBlock button:last-child {
+  background-color: rgba(237, 237, 237, 1);
+  color: rgba(55, 55, 55, 1);
+}
