@@ -23,3 +23,15 @@
   flex-direction: column;
   gap: 30px;
 }
+
+.inputBtn {
+  border-color: rgba(255, 255, 255, 1);
+  border-radius: 7px;
+  border: 1px solid;
+  padding: 15px;
+}
+
+.divBlock {
+  display: flex;
+  justify-content: space-between;
+}

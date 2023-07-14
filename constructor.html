@@ -23,26 +23,32 @@
       <a href="./index.html" class="">Python и разработка / Конструктор</a>
       <button class="enter">Выйти</button>
     </header>
-  </body>
-  <main class="mainSize">
-    <h1 class="pageTitle">Конструктор конспекта</h1>
-    <hr />
-    <div id="blocks-container"></div>
-    <div class="btnBlock">
-      <button onclick="createBlock()">Блок с текстом</button>
-      <button onclick="createBlock_TextBlock_CODE()">Блок с кодом</button>
-      <button>Блок с икнокой и текстом</button>
-      <button>Блок с ссылкой</button>
-      <button>Блок с картинкой</button>
-      <button onclick="createBlock_TextBlock_Line()">
-        Блок с чертой слева (Есть на скринах)
-      </button>
-      <button>Блок с разделяющей линией</button>
-      <button>Блок с заголовком (Большой текст)</button>
-      <button>Сохранить</button>
-    </div>
-  </main>
 
+    <main class="mainSize">
+      <h1 class="pageTitle">Конструктор конспекта</h1>
+      <hr />
+      <div id="blocks-container"></div>
+      <div class="btnBlock">
+        <button onclick="createBlock()">Блок с текстом</button>
+        <button onclick="createBlock_TextBlock_CODE()">Блок с кодом</button>
+        <button onclick="createBlock_ExplanationDesignation()">
+          Блок с икнокой и текстом
+        </button>
+        <button>Блок с ссылкой</button>
+        <button onclick="createBlock_ImageBlock()">Блок с картинкой</button>
+        <button onclick="createBlock_TextBlock_Line()">
+          Блок с чертой слева (Есть на скринах)
+        </button>
+        <button onclick="createBlock_hrBlock()">
+          Блок с разделяющей линией
+        </button>
+        <button onclick="createBlock_H1()">
+          Блок с заголовком (Большой текст)
+        </button>
+        <button type="submit" onclick="assignIDs()">Сохранить</button>
+      </div>
+    </main>
+  </body>
   <script src="./js/constructor.js"></script>
   <script src="./js/colorIntrod.js"></script>
 </html>
