@@ -28,7 +28,7 @@
   gap: 20px;
 }
 
-.explanation_designation svg {
+.explanation_designation img {
   align-self: flex-start;
 }
 
@@ -58,8 +58,6 @@
 }
 
 .codeExample {
-  width: 784px;
-  height: 717px;
   padding: 10px;
   border-radius: 7px;
   background: #4e4e4e;

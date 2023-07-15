@@ -2,6 +2,8 @@
 function createBlock() {
   const divBlock = document.createElement("div");
   divBlock.classList.add("divBlock");
+  const title = document.createElement("p");
+  title.innerHTML = "БЛОК С ТЕКСТОМ - TextBlock_TEXT";
 
   // Создаем новый блок p
   const P = document.createElement("P");
@@ -19,23 +21,11 @@ function createBlock() {
     divBlock.remove();
   };
 
-  // Создаем кнопку "добавить"
-  var button = document.createElement("button");
-  button.innerHTML = "Добавить";
-  button.onclick = function () {
-    // При клике на кнопку добавляем текст в параграф и очищаем поле ввода
-    var text = input.value;
-    P.innerHTML += text + "";
-    input.value = "";
-
-    // Прячем input и button
-    input.style.display = "none";
-    button.style.display = "none";
-  };
   divBlock.appendChild(input);
-  divBlock.appendChild(button);
+
   // Добавляем новый блок в контейнер
   const container = document.getElementById("blocks-container");
+  container.appendChild(title);
   container.appendChild(divBlock);
   divBlock.appendChild(deleteButton);
 }
@@ -50,6 +40,9 @@ function createBlock_H1() {
   const H1 = document.createElement("h1");
   H1.classList.add("block");
   divBlock.appendChild(H1);
+  const title = document.createElement("p");
+  title.innerHTML = "БЛОК С ЗАГОЛОВКОМ - TextBlock_HEADERTEXT";
+
   // Создаем input для ввода текста
   var input = document.createElement("input");
   input.type = "text";
@@ -62,23 +55,10 @@ function createBlock_H1() {
     divBlock.remove();
   };
 
-  // Создаем кнопку "добавить"
-  var button = document.createElement("button");
-  button.innerHTML = "Добавить";
-  button.onclick = function () {
-    // При клике на кнопку добавляем текст в параграф и очищаем поле ввода
-    var text = input.value;
-    H1.innerHTML += text + "";
-    input.value = "";
-
-    // Прячем input и button
-    input.style.display = "none";
-    button.style.display = "none";
-  };
   divBlock.appendChild(input);
-  divBlock.appendChild(button);
   // Добавляем новый блок в контейнер
   const container = document.getElementById("blocks-container");
+  container.appendChild(title);
   container.appendChild(divBlock);
   divBlock.appendChild(deleteButton);
 }
@@ -97,6 +77,8 @@ function createBlock_TextBlock_Line() {
   divBlock.appendChild(block);
   // Создаем элемент p и добавляем текст
   const P = document.createElement("p");
+  const title = document.createElement("p");
+  title.innerHTML = "БЛОК ТЕКСТ ЛИНИЯ - TextBlock_QUOTETEXT";
 
   // Создаем SVG элемент
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -127,24 +109,11 @@ function createBlock_TextBlock_Line() {
     divBlock.remove();
   };
 
-  // Создаем кнопку "добавить"
-  var button = document.createElement("button");
-  button.innerHTML = "Добавить";
-  button.onclick = function () {
-    // При клике на кнопку добавляем текст в параграф и очищаем поле ввода
-    var text = input.value;
-    P.innerHTML += text + "";
-    input.value = "";
-
-    // Прячем input и button
-    input.style.display = "none";
-    button.style.display = "none";
-  };
   divBlock.appendChild(input);
-  divBlock.appendChild(button);
 
   // Добавляем новый блок в контейнер
   const container = document.getElementById("blocks-container");
+  container.appendChild(title);
   container.appendChild(divBlock);
   divBlock.appendChild(deleteButton);
 }
@@ -159,6 +128,10 @@ function createBlock_TextBlock_CODE() {
   const P = document.createElement("P");
   divBlock.appendChild(P);
   P.classList.add("block");
+
+  const title = document.createElement("p");
+  title.innerHTML = "БЛОК С КОДОМ - TextBlock_CODE";
+
   // Создаем новый блок div
   const block = document.createElement("div");
   block.classList.add("example_designation"); // Добавляем класс "designation"
@@ -177,23 +150,10 @@ function createBlock_TextBlock_CODE() {
     divBlock.remove();
   };
 
-  // Создаем кнопку "добавить"
-  var button = document.createElement("button");
-  button.innerHTML = "Добавить";
-  button.onclick = function () {
-    // При клике на кнопку добавляем текст в параграф и очищаем поле ввода
-    var text = input.value;
-    P.innerHTML += text + "";
-    input.value = "";
-
-    // Прячем input и button
-    input.style.display = "none";
-    button.style.display = "none";
-  };
   block.appendChild(input);
-  block.appendChild(button);
   // Добавляем новый блок в контейнер
   const container = document.getElementById("blocks-container");
+  container.appendChild(title);
   container.appendChild(divBlock);
   divBlock.appendChild(deleteButton);
 }
@@ -204,13 +164,31 @@ function createBlock_ImageBlock() {
   const section = document.createElement("section");
   section.classList.add("codeExample"); // Добавляем класс "codeExample"
   section.classList.add("block");
+
+  const title = document.createElement("p");
+  title.innerHTML = "БЛОК С КАРТИНКОЙ - ImageBlock";
+
   // Создаем элемент img
-  const img = document.createElement("img");
-  img.src = "./assets/codeEx.png";
-  img.alt = "";
+  var imagePreview = document.createElement("img");
+  var imageInput = document.createElement("input");
+  imageInput.type = "file";
+  imageInput.name = "ImageBlock_позиция_image";
+  imageInput.classList.add("inputBtn");
+
+  imageInput.addEventListener("change", function (event) {
+    var file = event.target.files[0];
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      imagePreview.src = e.target.result;
+    };
+
+    reader.readAsDataURL(file);
+  });
 
   var deleteButton = document.createElement("button");
   deleteButton.innerHTML = "Удалить";
+  deleteButton.classList.add("dltBtn");
   deleteButton.onclick = function () {
     // При клике на кнопку удаляем блок
     deleteButton.remove();
@@ -218,12 +196,100 @@ function createBlock_ImageBlock() {
   };
 
   // Добавляем элемент img в блок section
-  section.appendChild(img);
 
+  section.appendChild(imageInput);
+  section.appendChild(imagePreview);
   // Добавляем новый блок в контейнер
   const container = document.getElementById("blocks-container");
+  container.appendChild(title);
   container.appendChild(section);
   container.appendChild(deleteButton);
+}
+
+{
+  /* <div class="lessons_designation">
+  <div class="nav_lesson">
+    <img src="./assets/2basics.svg" alt="" />
+    <p>Урок 2. Переменные</p>
+  </div>
+
+  <div class="nav_lesson">
+    <img src="./assets/2basics.svg" alt="" />
+    <p>Урок 2. Переменные</p>
+  </div>
+
+  <div class="nav_lesson">
+    <img src="./assets/2basics.svg" alt="" />
+    <p>Урок 2. Переменные</p>
+  </div>
+</div>; */
+}
+
+//ссылка
+function createBlock_link() {
+  const divBlock = document.createElement("div");
+  divBlock.classList.add("divBlock");
+  divBlock.classList.add("lessons_designation");
+
+  const nav_lesson1 = document.createElement("div");
+  nav_lesson1.classList.add("nav_lesson");
+  divBlock.appendChild(nav_lesson1);
+
+  const nav_lesson2 = document.createElement("div");
+  nav_lesson2.classList.add("nav_lesson");
+  divBlock.appendChild(nav_lesson2);
+
+  const nav_lesson3 = document.createElement("div");
+  nav_lesson3.classList.add("nav_lesson");
+  divBlock.appendChild(nav_lesson3);
+  const title = document.createElement("p");
+  title.innerHTML = "БЛОК С ССЫЛКОЙ - LinkBlock";
+
+  // Создаем новый блок p
+  const P = document.createElement("P");
+  nav_lesson1.appendChild(P);
+
+  const img1 = document.createElement("img");
+  img1.src = "./assets/2basics.svg";
+  nav_lesson1.appendChild(img1);
+
+  const img2 = document.createElement("img");
+  img2.src = "./assets/2basics.svg";
+  nav_lesson2.appendChild(img2);
+
+  const img3 = document.createElement("img");
+  img3.src = "./assets/2basics.svg";
+  nav_lesson3.appendChild(img3);
+  // Создаем input для ввода текста
+  var input1 = document.createElement("input");
+  input1.type = "text";
+  input1.classList.add("inputBtn");
+  input1.name = "LinkBlock_позиция_text";
+
+  var input2 = document.createElement("input");
+  input2.type = "text";
+  input2.classList.add("inputBtn");
+  input2.name = "LinkBlock_позиция_text";
+
+  var input3 = document.createElement("input");
+  input3.type = "text";
+  input3.classList.add("inputBtn");
+  input3.name = "LinkBlock_позиция_text";
+  var deleteButton = document.createElement("button");
+  deleteButton.innerHTML = "Удалить";
+  deleteButton.classList.add("dltBtn");
+  deleteButton.onclick = function () {
+    divBlock.remove();
+  };
+
+  nav_lesson1.appendChild(input1);
+  nav_lesson2.appendChild(input2);
+  nav_lesson3.appendChild(input3);
+  // Добавляем новый блок в контейнер
+  const container = document.getElementById("blocks-container");
+  container.appendChild(title);
+  container.appendChild(divBlock);
+  divBlock.appendChild(deleteButton);
 }
 
 //добавление hr
@@ -231,9 +297,14 @@ function createBlock_hrBlock() {
   // Создаем новый блок hr
   const hr = document.createElement("hr");
   hr.classList.add("block");
+
+  const title = document.createElement("p");
+  title.innerHTML = "БЛОК hr";
+
   // Создаем кнопку "удалить"
   var deleteButton = document.createElement("button");
   deleteButton.innerHTML = "Удалить";
+  deleteButton.classList.add("dltBtn");
   deleteButton.onclick = function () {
     // При клике на кнопку удаляем блок
     hr.remove();
@@ -242,14 +313,18 @@ function createBlock_hrBlock() {
   // Добавляем новый блок в контейнер
 
   const container = document.getElementById("blocks-container");
+  container.appendChild(title);
   container.appendChild(hr);
-  container.appendChild(deleteButton);
+  hr.appendChild(deleteButton);
 }
 
 function createBlock_ExplanationDesignation() {
   const explanationDesignation = document.createElement("div");
   explanationDesignation.classList.add("explanation_designation");
   explanationDesignation.classList.add("block");
+
+  const title = document.createElement("p");
+  title.innerHTML = "БЛОК С ИКОНКОЙ И ТЕКСТОМ - CalloutBlock";
 
   var input = document.createElement("input");
   input.type = "text";
@@ -263,18 +338,6 @@ function createBlock_ExplanationDesignation() {
 
   const img = document.createElement("img");
   const p = document.createElement("p");
-
-  var button = document.createElement("button");
-  button.innerHTML = "Добавить";
-  button.onclick = function () {
-    var text = input.value;
-    p.innerHTML += text + "";
-    input.value = "";
-
-    input.style.display = "none";
-    imageInput.style.display = "none";
-    button.style.display = "none";
-  };
 
   imageInput.addEventListener("change", function (event) {
     var file = event.target.files[0];
@@ -300,9 +363,9 @@ function createBlock_ExplanationDesignation() {
 
   explanationDesignation.appendChild(imageInput);
   explanationDesignation.appendChild(input);
-  explanationDesignation.appendChild(button);
 
   const container = document.getElementById("blocks-container");
+  container.appendChild(title);
   container.appendChild(explanationDesignation);
   explanationDesignation.appendChild(deleteButton);
 }
@@ -316,7 +379,7 @@ function hideBtn() {
 }
 
 function saveInputs() {
-  var inputs = document.querySelectorAll('input[type="text"]');
+  var inputs = document.querySelectorAll("input");
   var count = 1;
 
   inputs.forEach(function (input) {
@@ -363,37 +426,3 @@ function assignIDs() {
   saveInputs();
   hideBtn();
 }
-
-// function getPosition(divBlock) {
-//   var parent = divBlock.parentNode;
-//   var position = 0;
-
-//   for (var i = 0; i < parent.children.length; i++) {
-//     if (parent.children[i] == divBlock) {
-//       position = i + 1;
-//       break;
-//     }
-//   }
-
-//   return position;
-// }
-
-// function assignIDs() {
-//   var blocks = document.getElementsByClassName("blocks_container");
-
-//   for (var i = 0; i < blocks.length; i++) {
-//     var position = getPosition(blocks[i]); // Получаем место блока в общем блоке
-//     var id = "";
-
-//     if (blocks[i].classList.contains("TextBlock")) {
-//       id = "TextBlock_TEXT_" + position + "_text";
-//     } else if (blocks[i].classList.contains("CodeBlock")) {
-//       id = "TextBlock_CODE_" + position + "_text";
-//     } else if (blocks[i].classList.contains("LinkBlock")) {
-//       id = "LinkBlock_" + position + "_text";
-//     }
-
-//     blocks[i].id = id;
-//   }
-//   dltBtn();
-// }
