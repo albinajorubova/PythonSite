@@ -19,6 +19,7 @@ function createBlock() {
   deleteButton.classList.add("dltBtn");
   deleteButton.onclick = function () {
     divBlock.remove();
+    title.remove();
   };
 
   divBlock.appendChild(input);
@@ -53,6 +54,7 @@ function createBlock_H1() {
   deleteButton.classList.add("dltBtn");
   deleteButton.onclick = function () {
     divBlock.remove();
+    title.remove();
   };
 
   divBlock.appendChild(input);
@@ -107,6 +109,7 @@ function createBlock_TextBlock_Line() {
   deleteButton.classList.add("dltBtn");
   deleteButton.onclick = function () {
     divBlock.remove();
+    title.remove();
   };
 
   divBlock.appendChild(input);
@@ -148,6 +151,7 @@ function createBlock_TextBlock_CODE() {
   deleteButton.classList.add("dltBtn");
   deleteButton.onclick = function () {
     divBlock.remove();
+    title.remove();
   };
 
   block.appendChild(input);
@@ -192,6 +196,7 @@ function createBlock_ImageBlock() {
   deleteButton.onclick = function () {
     // При клике на кнопку удаляем блок
     deleteButton.remove();
+    title.remove();
     section.remove();
   };
 
@@ -280,6 +285,7 @@ function createBlock_link() {
   deleteButton.classList.add("dltBtn");
   deleteButton.onclick = function () {
     divBlock.remove();
+    title.remove();
   };
 
   nav_lesson1.appendChild(input1);
@@ -309,6 +315,7 @@ function createBlock_hrBlock() {
     // При клике на кнопку удаляем блок
     hr.remove();
     deleteButton.remove();
+    title.remove();
   };
   // Добавляем новый блок в контейнер
 
@@ -356,6 +363,7 @@ function createBlock_ExplanationDesignation() {
   deleteButton.onclick = function () {
     deleteButton.remove();
     explanationDesignation.remove();
+    title.remove();
   };
   explanationDesignation.appendChild(img);
   // explanationDesignation.appendChild(svg);
