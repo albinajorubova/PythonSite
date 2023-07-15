@@ -315,41 +315,6 @@ function hideBtn() {
   }
 }
 
-// function saveInputs() {
-//   var inputs = document.querySelectorAll('input[type="text"]');
-//   var count = 1;
-
-//   inputs.forEach(function (input) {
-//     var name = input.name.split("_");
-//     var position = name[2];
-//     var type = name[1];
-//     var newName = "";
-
-//     if (type === "TEXT" && input.name.includes("_text")) {
-//       newName = "TextBlock_TEXT_" + count + "_text";
-//     } else if (type === "CODE" && input.name.includes("_text")) {
-//       newName = "TextBlock_CODE_" + count + "_text";
-//     } else if (type === "CalloutBlock" && input.name.includes("_text")) {
-//       newName = "CalloutBlock_" + count + "_text";
-//     } else if (type === "CalloutBlock" && input.name.includes("_image")) {
-//       newName = "CalloutBlock_" + count + "_image";
-//     } else if (type === "TextBlock" && input.name.includes("_HeaderText_")) {
-//       newName = "TextBlock_HEADERTEXT_" + count + "_text";
-//     } else if (type === "LinkBlock" && input.name.includes("_text")) {
-//       newName = "LinkBlock_" + count + "_text";
-//     } else if (type === "ImageBlock" && input.name.includes("_image")) {
-//       newName = "ImageBlock_" + count + "_image";
-//     } else if (type === "TextBlock" && input.name.includes("_QuoteText_")) {
-//       newName = "TextBlock_QUOTETEXT_" + count + "_text";
-//     } else if (type === "DividerBlock" && input.name.includes("_")) {
-//       newName = "DividerBlock_" + count;
-//     }
-
-//     input.name = newName;
-//     count++;
-//   });
-// }
-
 function saveInputs() {
   var inputs = document.querySelectorAll('input[type="text"]');
   var count = 1;
