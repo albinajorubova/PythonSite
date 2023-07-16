@@ -40,10 +40,25 @@ hr.block {
 
 .divBlock {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   gap: 10px;
+  background-color: rgb(59, 59, 59);
+  border-radius: 7px;
+  padding: 2px;
+  padding-bottom: 10px;
 }
 input {
   width: 100%;
   height: 100%;
+}
+
+.lessons_designation {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nav_lesson {
+  flex-basis: 25%;
+  /* Specify the desired width for each block */
+  margin: 10px;
 }

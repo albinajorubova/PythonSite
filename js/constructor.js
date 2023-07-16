@@ -13,7 +13,8 @@ function createBlock() {
   var input = document.createElement("input");
   input.type = "text";
   input.classList.add("inputBtn");
-  input.name = "TextBlock_TEXT__позиция_text";
+  input.name = "TextBlock_TEXT_позиция_text";
+
   var deleteButton = document.createElement("button");
   deleteButton.innerHTML = "Удалить";
   deleteButton.classList.add("dltBtn");
@@ -145,7 +146,7 @@ function createBlock_TextBlock_CODE() {
   var input = document.createElement("input");
   input.type = "text";
   input.classList.add("inputBtn");
-  input.name = "TextBlock_CODE_code_text";
+  input.name = "TextBlock_CODE_код_text";
   var deleteButton = document.createElement("button");
   deleteButton.innerHTML = "Удалить";
   deleteButton.classList.add("dltBtn");
@@ -154,7 +155,7 @@ function createBlock_TextBlock_CODE() {
     title.remove();
   };
 
-  block.appendChild(input);
+  divBlock.appendChild(input);
   // Добавляем новый блок в контейнер
   const container = document.getElementById("blocks-container");
   container.appendChild(title);
@@ -167,7 +168,7 @@ function createBlock_ImageBlock() {
   // Создаем новый блок section
   const section = document.createElement("section");
   section.classList.add("codeExample"); // Добавляем класс "codeExample"
-  section.classList.add("block");
+  section.classList.add("divBlock");
 
   const title = document.createElement("p");
   title.innerHTML = "БЛОК С КАРТИНКОЙ - ImageBlock";
@@ -230,72 +231,57 @@ function createBlock_ImageBlock() {
 </div>; */
 }
 
-//ссылка
 function createBlock_link() {
   const divBlock = document.createElement("div");
   divBlock.classList.add("divBlock");
-  divBlock.classList.add("lessons_designation");
 
-  const nav_lesson1 = document.createElement("div");
-  nav_lesson1.classList.add("nav_lesson");
-  divBlock.appendChild(nav_lesson1);
+  // const title = document.createElement("p");
+  // title.innerHTML = "БЛОК С ССЫЛКОЙ - LinkBlock";
 
-  const nav_lesson2 = document.createElement("div");
-  nav_lesson2.classList.add("nav_lesson");
-  divBlock.appendChild(nav_lesson2);
+  // Создаем новый блок nav_lesson
+  const lessons_designation = document.createElement("div");
+  lessons_designation.classList.add("lessons_designation");
+  divBlock.appendChild(lessons_designation);
+  var navLesson_btn = document.createElement("button");
+  navLesson_btn.innerHTML = "Добавить";
+  navLesson_btn.classList.add("dltBtn");
+  divBlock.appendChild(navLesson_btn);
 
-  const nav_lesson3 = document.createElement("div");
-  nav_lesson3.classList.add("nav_lesson");
-  divBlock.appendChild(nav_lesson3);
-  const title = document.createElement("p");
-  title.innerHTML = "БЛОК С ССЫЛКОЙ - LinkBlock";
+  function create_navLesson() {
+    const nav_lesson = document.createElement("div");
+    nav_lesson.classList.add("nav_lesson");
+    lessons_designation.appendChild(nav_lesson);
 
-  // Создаем новый блок p
-  const P = document.createElement("P");
-  nav_lesson1.appendChild(P);
+    const img = document.createElement("img");
+    img.src = "./assets/2basics.svg";
+    nav_lesson.appendChild(img);
 
-  const img1 = document.createElement("img");
-  img1.src = "./assets/2basics.svg";
-  nav_lesson1.appendChild(img1);
+    const P = document.createElement("p");
+    nav_lesson.appendChild(P);
 
-  const img2 = document.createElement("img");
-  img2.src = "./assets/2basics.svg";
-  nav_lesson2.appendChild(img2);
+    // Создаем input для ввода текста
+    var input = document.createElement("input");
+    input.type = "text";
+    input.classList.add("inputBtn");
+    input.name = "LinkBlock_позиция_text";
 
-  const img3 = document.createElement("img");
-  img3.src = "./assets/2basics.svg";
-  nav_lesson3.appendChild(img3);
-  // Создаем input для ввода текста
-  var input1 = document.createElement("input");
-  input1.type = "text";
-  input1.classList.add("inputBtn");
-  input1.name = "LinkBlock_позиция_text";
+    var deleteButton = document.createElement("button");
+    deleteButton.innerHTML = "Удалить";
+    deleteButton.classList.add("dltBtn");
+    deleteButton.onclick = function () {
+      divBlock.remove();
+      title.remove();
+    };
 
-  var input2 = document.createElement("input");
-  input2.type = "text";
-  input2.classList.add("inputBtn");
-  input2.name = "LinkBlock_позиция_text";
-
-  var input3 = document.createElement("input");
-  input3.type = "text";
-  input3.classList.add("inputBtn");
-  input3.name = "LinkBlock_позиция_text";
-  var deleteButton = document.createElement("button");
-  deleteButton.innerHTML = "Удалить";
-  deleteButton.classList.add("dltBtn");
-  deleteButton.onclick = function () {
-    divBlock.remove();
-    title.remove();
-  };
-
-  nav_lesson1.appendChild(input1);
-  nav_lesson2.appendChild(input2);
-  nav_lesson3.appendChild(input3);
+    nav_lesson.appendChild(input);
+    lessons_designation.appendChild(deleteButton);
+  }
   // Добавляем новый блок в контейнер
   const container = document.getElementById("blocks-container");
-  container.appendChild(title);
+
+  // container.appendChild(title);
   container.appendChild(divBlock);
-  divBlock.appendChild(deleteButton);
+  navLesson_btn.onclick = create_navLesson;
 }
 
 //добавление hr
@@ -328,7 +314,7 @@ function createBlock_hrBlock() {
 function createBlock_ExplanationDesignation() {
   const explanationDesignation = document.createElement("div");
   explanationDesignation.classList.add("explanation_designation");
-  explanationDesignation.classList.add("block");
+  explanationDesignation.classList.add("divBlock");
 
   const title = document.createElement("p");
   title.innerHTML = "БЛОК С ИКОНКОЙ И ТЕКСТОМ - CalloutBlock";
@@ -340,7 +326,7 @@ function createBlock_ExplanationDesignation() {
 
   var imageInput = document.createElement("input");
   imageInput.type = "file";
-  imageInput.name = "CalloutBlock_карт_image";
+  imageInput.name = "CalloutBlock_позиция_image";
   imageInput.classList.add("inputBtn");
 
   const img = document.createElement("img");
@@ -393,43 +379,53 @@ function saveInputs() {
   inputs.forEach(function (input) {
     var name = input.name.split("_");
     var type = name[0];
-    var newName = "";
+    var newName = name.join("_");
 
-    if (type === "TextBlock" && input.name.includes("_позиция_text")) {
-      newName = "TextBlock_TEXT_" + count + "_text";
-    } else if (type === "TextBlock" && input.name.includes("_code_text")) {
-      newName = "TextBlock_CODE_" + count + "_text";
+    // Получить родительский элемент divBlock
+    var parentDivBlock = input.closest(".divBlock");
+
+    // Получить id родительского элемента divBlock
+    var divBlockId = parentDivBlock.getAttribute("id");
+
+    // Заменить _позиция в имени newName
+    newName = newName.replace("_позиция", "_" + divBlockId);
+
+    if (type === "TextBlock_TEXT_" && input.name.includes("_позиция_text")) {
+      newName = "TextBlock_TEXT_" + divBlockId + "_text";
+    } else if (type === "TextBlock" && input.name.includes("_код_text")) {
+      newName = "TextBlock_CODE_" + divBlockId + "_text";
     } else if (
       type === "CalloutBlock" &&
       input.name.includes("_позиция_text")
     ) {
-      newName = "CalloutBlock_" + count + "_text";
-    } else if (type === "CalloutBlock" && input.name.includes("_карт_image")) {
-      newName = "CalloutBlock_" + count + "_image";
+      newName = "CalloutBlock_" + divBlockId + "_text";
+    } else if (
+      type === "CalloutBlock" &&
+      input.name.includes("_позиция_image")
+    ) {
+      newName = "CalloutBlock_" + divBlockId + "_image";
     } else if (type === "TextBlock" && input.name.includes("_текст_text")) {
-      newName = "TextBlock_HEADERTEXT_" + count + "_text";
+      newName = "TextBlock_HEADERTEXT_" + divBlockId + "_text";
     } else if (type === "LinkBlock" && input.name.includes("_позиция_text")) {
-      newName = "LinkBlock_" + count + "_text";
+      newName = "LinkBlock_" + divBlockId + "_text";
     } else if (type === "ImageBlock" && input.name.includes("_позиция_image")) {
-      newName = "ImageBlock_" + count + "_image";
+      newName = "ImageBlock_" + divBlockId + "_image";
     } else if (type === "TextBlock" && input.name.includes("_код_text")) {
-      newName = "TextBlock_QUOTETEXT_" + count + "_text";
+      newName = "TextBlock_QUOTETEXT_" + divBlockId + "_text";
     } else if (type === "DividerBlock" && input.name.includes("_позиция")) {
-      newName = "DividerBlock_" + count;
+      newName = "DividerBlock_" + divBlockId;
     }
 
     input.name = newName;
-    count++;
   });
 }
-
 //id
 function assignIDs() {
   var blocks = document.getElementsByClassName("divBlock");
   var input = document.getElementsByClassName("inputBtn");
 
   for (var i = 0; i < blocks.length; i++) {
-    blocks[i].id = "block-" + (i + 1);
+    blocks[i].id = i + 1;
   }
   saveInputs();
   hideBtn();
