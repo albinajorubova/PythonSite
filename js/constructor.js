@@ -364,7 +364,8 @@ function hideBtn() {
 }
 
 function saveInputs() {
-  var inputs = document.querySelectorAll("input");
+  var main = document.querySelector("main");
+  var inputs = main.querySelectorAll("input");
   var count = 1;
 
   inputs.forEach(function (input) {
