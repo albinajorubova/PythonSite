@@ -212,25 +212,6 @@ function createBlock_ImageBlock() {
   container.appendChild(deleteButton);
 }
 
-{
-  /* <div class="lessons_designation">
-  <div class="nav_lesson">
-    <img src="./assets/2basics.svg" alt="" />
-    <p>Урок 2. Переменные</p>
-  </div>
-
-  <div class="nav_lesson">
-    <img src="./assets/2basics.svg" alt="" />
-    <p>Урок 2. Переменные</p>
-  </div>
-
-  <div class="nav_lesson">
-    <img src="./assets/2basics.svg" alt="" />
-    <p>Урок 2. Переменные</p>
-  </div>
-</div>; */
-}
-
 function createBlock_link() {
   const divBlock = document.createElement("div");
   divBlock.classList.add("divBlock");
@@ -286,20 +267,27 @@ function createBlock_link() {
 
 //добавление hr
 function createBlock_hrBlock() {
+  const divBlock = document.createElement("div");
+  divBlock.classList.add("divBlock");
   // Создаем новый блок hr
   const hr = document.createElement("hr");
-  hr.classList.add("block");
 
   const title = document.createElement("p");
   title.innerHTML = "БЛОК hr";
-
+  // Создаем input для ввода текста
+  var input = document.createElement("input");
+  input.type = "text";
+  input.value = "1";
+  input.classList.add("inputBtn");
+  input.name = "DividerBlock_позиция_hr";
+  input.style.display = "none";
   // Создаем кнопку "удалить"
   var deleteButton = document.createElement("button");
   deleteButton.innerHTML = "Удалить";
   deleteButton.classList.add("dltBtn");
   deleteButton.onclick = function () {
     // При клике на кнопку удаляем блок
-    hr.remove();
+    divBlock.remove();
     deleteButton.remove();
     title.remove();
   };
@@ -307,7 +295,9 @@ function createBlock_hrBlock() {
 
   const container = document.getElementById("blocks-container");
   container.appendChild(title);
-  container.appendChild(hr);
+  container.appendChild(divBlock);
+  divBlock.appendChild(hr);
+  divBlock.appendChild(input);
   hr.appendChild(deleteButton);
 }
 
@@ -412,7 +402,7 @@ function saveInputs() {
       newName = "ImageBlock_" + divBlockId + "_image";
     } else if (type === "TextBlock" && input.name.includes("_код_text")) {
       newName = "TextBlock_QUOTETEXT_" + divBlockId + "_text";
-    } else if (type === "DividerBlock" && input.name.includes("_позиция")) {
+    } else if (type === "DividerBlock" && input.name.includes("_позиция_hr")) {
       newName = "DividerBlock_" + divBlockId;
     }
 
