@@ -277,10 +277,11 @@ function createBlock_hrBlock() {
   // Создаем input для ввода текста
   var input = document.createElement("input");
   input.type = "text";
-  input.value = "1";
+  input.value = "hr1";
   input.classList.add("inputBtn");
+  input.classList.add("hrInput");
   input.name = "DividerBlock_позиция_hr";
-  input.style.display = "none";
+  input.style.visibility = "hidden";
   // Создаем кнопку "удалить"
   var deleteButton = document.createElement("button");
   deleteButton.innerHTML = "Удалить";
