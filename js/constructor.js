@@ -363,158 +363,13 @@ function hideBtn() {
   }
 }
 
-// function saveInputs() {
-//   var main = document.querySelector("main");
-//   var inputs = main.querySelectorAll("input");
-//   var count = 1;
-
-//   inputs.forEach(function (input) {
-//     var name = input.name.split("_");
-//     var type = name[0];
-//     var newName = name.join("_");
-
-//     // Получить родительский элемент divBlock
-//     var parentDivBlock = input.closest(".divBlock");
-
-//     // Получить id родительского элемента divBlock
-//     var divBlockId = parentDivBlock.getAttribute("id");
-
-//     // Заменить _позиция в имени newName
-//     newName = newName.replace("_позиция", "_" + divBlockId);
-
-//     if (type === "TextBlock_TEXT_" && input.name.includes("_позиция_text")) {
-//       newName = "TextBlock_TEXT_" + divBlockId + "_text";
-//     } else if (type === "TextBlock" && input.name.includes("_код_text")) {
-//       newName = "TextBlock_CODE_" + divBlockId + "_text";
-//     } else if (
-//       type === "CalloutBlock" &&
-//       input.name.includes("_позиция_text")
-//     ) {
-//       newName = "CalloutBlock_" + divBlockId + "_text";
-//     } else if (
-//       type === "CalloutBlock" &&
-//       input.name.includes("_позиция_image")
-//     ) {
-//       newName = "CalloutBlock_" + divBlockId + "_image";
-//     } else if (type === "TextBlock" && input.name.includes("_текст_text")) {
-//       newName = "TextBlock_HEADERTEXT_" + divBlockId + "_text";
-//     } else if (type === "LinkBlock" && input.name.includes("_позиция_text")) {
-//       newName = "LinkBlock_" + divBlockId + "_text";
-//     } else if (type === "ImageBlock" && input.name.includes("_позиция_image")) {
-//       newName = "ImageBlock_" + divBlockId + "_image";
-//     } else if (type === "TextBlock" && input.name.includes("_код_text")) {
-//       newName = "TextBlock_QUOTETEXT_" + divBlockId + "_text";
-//     } else if (type === "DividerBlock" && input.name.includes("_позиция_hr")) {
-//       newName = "DividerBlock_" + divBlockId;
-//     }
-
-//     input.name = newName;
-//   });
-
-//   // Создать скрытые поля с информацией о количестве каждого типа input
-//   var hiddenInputs = [];
-//   var types = [
-//     "TextBlock",
-//     "CalloutBlock",
-//     "LinkBlock",
-//     "ImageBlock",
-//     "DividerBlock",
-//   ];
-
-//   types.forEach(function (type) {
-//     var typeCount = main.querySelectorAll(`input[name^="${type}_"]`).length;
-
-//     // for (var i = 0; i < 5; i++) {
-//     var hiddenInput = document.createElement("input");
-//     hiddenInput.type = "hidden";
-//     hiddenInput.value = typeCount;
-//     hiddenInput.name = `${type}_new`;
-//     hiddenInputs.push(hiddenInput);
-//     // }
-//   });
-
-//   // Добавляем 5 скрытых полей после блока main
-//   hiddenInputs.forEach(function (hiddenInput) {
-//     main.parentNode.insertBefore(hiddenInput, main.nextSibling);
-//   });
-// }
-
 function saveInputs() {
   var main = document.querySelector("main");
   var inputs = main.querySelectorAll("input");
-  var countMap = {};
+  var count = 1;
 
-  function updateCountMap(name) {
-    if (countMap.hasOwnProperty(name)) {
-      countMap[name] += 1;
-    } else {
-      countMap[name] = 1;
-    }
-  }
-
-  // function createHiddenInput(name, value) {
-  //   var hiddenInput = document.createElement("input");
-  //   hiddenInput.type = "hidden";
-  //   hiddenInput.name = name;
-  //   hiddenInput.value = value;
-  //   main.appendChild(hiddenInput);
-  // }
-
-  inputs.forEach(function (input) {
-    var name = input.name.split("_");
-    var type = name[0];
-    var newName = name.join("_");
-
-    // Получить родительский элемент divBlock
-    var parentDivBlock = input.closest(".divBlock");
-
-    // Получить id родительского элемента divBlock
-    var divBlockId = parentDivBlock.getAttribute("id");
-
-    // Заменить _позиция в имени newName
-    newName = newName.replace("_позиция", "_" + divBlockId);
-
-    // Убрать цифру в имени newName
-    newName = newName.replace(/[0-9]/g, "");
-
-    if (type === "TextBlock_TEXT_" && input.name.includes("_позиция_text")) {
-      newName = "TextBlock_TEXT_" + divBlockId + "_text";
-    } else if (type === "TextBlock" && input.name.includes("_код_text")) {
-      newName = "TextBlock_CODE_" + divBlockId + "_text";
-    } else if (
-      type === "CalloutBlock" &&
-      input.name.includes("_позиция_text")
-    ) {
-      newName = "CalloutBlock_" + divBlockId + "_text";
-    } else if (
-      type === "CalloutBlock" &&
-      input.name.includes("_позиция_image")
-    ) {
-      newName = "CalloutBlock_" + divBlockId + "_image";
-    } else if (type === "TextBlock" && input.name.includes("_текст_text")) {
-      newName = "TextBlock_HEADERTEXT_" + divBlockId + "_text";
-    } else if (type === "LinkBlock" && input.name.includes("_позиция_text")) {
-      newName = "LinkBlock_" + divBlockId + "_text";
-    } else if (type === "ImageBlock" && input.name.includes("_позиция_image")) {
-      newName = "ImageBlock_" + divBlockId + "_image";
-    } else if (type === "TextBlock" && input.name.includes("_quote_text")) {
-      newName = "TextBlock_QUOTETEXT_" + divBlockId + "_text";
-    } else if (type === "DividerBlock" && input.name.includes("_позиция_hr")) {
-      newName = "DividerBlock_" + divBlockId;
-    }
-
-    input.name = newName;
-
-    updateCountMap(newName);
-  });
-
-  // for (var key in countMap) {
-  //   if (countMap.hasOwnProperty(key)) {
-  //     createHiddenInput(key, countMap[key]);
-  //   }
-  // }
-
-  for (var i = 0; i < 8; i++) {
+  // Создать 9 элементов input с типом hidden
+  for (var i = 0; i < 9; i++) {
     var input = document.createElement("input");
     input.type = "hidden";
 
@@ -551,7 +406,7 @@ function saveInputs() {
       input.name = "ImageBlock_image_new";
     } else if (i === 6) {
       input.value = main.querySelectorAll(
-        "input[name^='TextBlock_QUOTETEXT']"
+        "input[name^='TextBlock_QUOTETEXT_']"
       ).length;
       input.name = "TextBlock_QUOTETEXT_new";
     } else if (i === 7) {
@@ -559,11 +414,59 @@ function saveInputs() {
         "input[name^='DividerBlock_']"
       ).length;
       input.name = "DividerBlock_new";
+    } else if (i === 8) {
+      input.value = main.querySelectorAll(
+        "input[name^='TextBlock_HEADERTEXT_']"
+      ).length;
+      input.name = "TextBlock_HEADERTEXT_new";
     }
 
     // Добавить созданный элемент input в main
     main.appendChild(input);
   }
+
+  inputs.forEach(function (input) {
+    var name = input.name.split("_");
+    var type = name[0];
+    var newName = name.join("_");
+
+    // Получить родительский элемент divBlock
+    var parentDivBlock = input.closest(".divBlock");
+
+    // Получить id родительского элемента divBlock
+    var divBlockId = parentDivBlock.getAttribute("id");
+
+    // Заменить _позиция в имени newName
+    newName = newName.replace("_позиция", "_" + divBlockId);
+
+    if (type === "TextBlock_TEXT_" && input.name.includes("_позиция_text")) {
+      newName = "TextBlock_TEXT_" + divBlockId + "_text";
+    } else if (type === "TextBlock" && input.name.includes("_код_text")) {
+      newName = "TextBlock_CODE_" + divBlockId + "_text";
+    } else if (
+      type === "CalloutBlock" &&
+      input.name.includes("_позиция_text")
+    ) {
+      newName = "CalloutBlock_" + divBlockId + "_text";
+    } else if (
+      type === "CalloutBlock" &&
+      input.name.includes("_позиция_image")
+    ) {
+      newName = "CalloutBlock_" + divBlockId + "_image";
+    } else if (type === "TextBlock" && input.name.includes("_текст_text")) {
+      newName = "TextBlock_HEADERTEXT_" + divBlockId + "_text";
+    } else if (type === "LinkBlock" && input.name.includes("_позиция_text")) {
+      newName = "LinkBlock_" + divBlockId + "_text";
+    } else if (type === "ImageBlock" && input.name.includes("_позиция_image")) {
+      newName = "ImageBlock_" + divBlockId + "_image";
+    } else if (type === "TextBlock" && input.name.includes("_код_text")) {
+      newName = "TextBlock_QUOTETEXT_" + divBlockId + "_text";
+    } else if (type === "DividerBlock" && input.name.includes("_позиция_hr")) {
+      newName = "DividerBlock_" + divBlockId;
+    }
+
+    input.name = newName;
+  });
 }
 //id
 function assignIDs() {
