@@ -364,7 +364,7 @@ function hideBtn() {
 }
 
 function saveInputs() {
-  var main = document.querySelector("div#block-container");
+  var main = document.querySelector("main");
   var inputs = main.querySelectorAll("input");
   var count = 1;
 
@@ -459,7 +459,7 @@ function saveInputs() {
       newName = "LinkBlock_" + divBlockId + "_text";
     } else if (type === "ImageBlock" && input.name.includes("_позиция_image")) {
       newName = "ImageBlock_" + divBlockId + "_image";
-    } else if (type === "TextBlock" && input.name.includes("_код_text")) {
+    } else if (type === "TextBlock" && input.name.includes("_quote_text")) {
       newName = "TextBlock_QUOTETEXT_" + divBlockId + "_text";
     } else if (type === "DividerBlock" && input.name.includes("_позиция_hr")) {
       newName = "DividerBlock_" + divBlockId;
