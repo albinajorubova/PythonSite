@@ -1,128 +1,121 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Создание и удаление блоков</title>
-    <style>
-      .red-block {
-        background-color: red;
-      }
-
-      .blue-block {
-        background-color: blue;
-      }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
   </head>
   <body>
-    <button onclick="createBlock()">Создать блок (красный)</button>
-    <button onclick="createBlock_H1()">Создать блок (синий)</button>
+    <style>
+      #animation-container {
+        position: relative;
+      }
 
-    <div id="blocks-container"></div>
+      #digits,
+      #symbols {
+        font-size: 24px;
+        font-family: Arial, sans-serif;
+        color: blue;
+      }
 
+      #human {
+        width: 50px;
+        height: 100px;
+        background-color: red;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      #laptop {
+        width: 200px;
+        height: 150px;
+        background-color: gray;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+    <div id="animation-container">
+      <span id="digits">1234567890</span>
+      <span id="symbols">!@#$%^&amp;*</span>
+      <div id="human">
+        <!-- Здесь будет размещена анимация человечка -->
+      </div>
+      <div id="laptop">
+        <!-- Здесь будет размещена анимация ноутбука -->
+      </div>
+    </div>
     <script>
-      let blockCounter = 1; // Счетчик блоков
+      // Получение элементов разметки HTML
+      const digits = document.getElementById("digits");
+      const symbols = document.getElementById("symbols");
+      const human = document.getElementById("human");
+      const laptop = document.getElementById("laptop");
 
-      function createBlock(position) {
-        const divBlock = document.createElement("div");
-        divBlock.classList.add("divBlock");
-        divBlock.id = "TextBlock_TEXT_" + position;
-        // Создаем новый блок p
-        const P = document.createElement("P");
-        divBlock.appendChild(P);
-        P.classList.add("block");
-        // Создаем input для ввода текста
-        var input = document.createElement("input");
-        input.type = "text";
-        input.classList.add("inputBtn");
-        var deleteButton = document.createElement("button");
-        deleteButton.innerHTML = "Удалить";
-        deleteButton.onclick = function () {
-          divBlock.remove();
-        };
+      // Процесс трансформации цифр и символов
+      function transformElements() {
+        // Анимация для цифр
+        digits.animate(
+          [
+            { fontSize: "24px", opacity: 1 },
+            { fontSize: "48px", opacity: 0, transform: "translateY(-100px)" },
+          ],
+          {
+            duration: 1000,
+            fill: "forwards",
+          }
+        );
 
-        // Создаем кнопку "добавить"
-        var button = document.createElement("button");
-        button.innerHTML = "Добавить";
-        button.onclick = function () {
-          // При клике на кнопку добавляем текст в параграф и очищаем поле ввода
-          var text = input.value;
-          P.innerHTML += text + "";
-          input.value = "";
+        // Анимация для символов
+        symbols.animate(
+          [
+            { fontSize: "24px", opacity: 1 },
+            { fontSize: "48px", opacity: 0, transform: "translateY(100px)" },
+          ],
+          {
+            duration: 1000,
+            fill: "forwards",
+          }
+        );
 
-          // Удаляем input и button
-          divBlock.removeChild(input);
-          divBlock.removeChild(button);
-        };
-        divBlock.appendChild(input);
-        divBlock.appendChild(button);
-        // Добавляем новый блок в контейнер
-        const container = document("blocks-container");
-        container.appendChild(divBlock);
-        divBlock.appendChild(deleteButton);
+        // Анимация для человечка
+        human.animate(
+          [
+            { backgroundColor: "red", transform: "translate(-50%, -50%)" },
+            {
+              backgroundColor: "blue",
+              transform: "translate(-50%, -50%) scale(2)",
+            },
+            {
+              backgroundColor: "green",
+              transform: "translate(-50%, -50%) scale(2) rotate(180deg)",
+            },
+          ],
+          {
+            duration: 2000,
+            fill: "forwards",
+          }
+        );
+
+        // Анимация для ноутбука
+        laptop.animate(
+          [
+            { backgroundColor: "gray", transform: "translate(-50%, -50%)" },
+            {
+              backgroundColor: "yellow",
+              transform: "translate(-50%, -50%) scale(1.5)",
+            },
+          ],
+          {
+            duration: 2000,
+            fill: "forwards",
+          }
+        );
       }
-
-      function createBlock_H1(position) {
-        const divBlock = document.createElement("div");
-        divBlock.classList.add("divBlock");
-        divBlock.id = "TitleBlock_TITLE_" + position;
-        // Создаем новый блок h1
-        const H1 = document.createElement("h1");
-        H1.classList.add("block");
-        divBlock.appendChild(H1);
-
-        // Создаем input для ввода текста
-        var input = document.createElement("input");
-        input.type = "text";
-        input.classList.add("inputBtn");
-        var deleteButton = document.createElement("button");
-        deleteButton.innerHTML = "Удалить";
-        deleteButton.onclick = function () {
-          divBlock.remove();
-        };
-
-        // Создаем кнопку "добавить"
-        var button = document.createElement("button");
-        button.innerHTML = "Добавить";
-        button.onclick = function () {
-          // При клике на кнопку добавляем текст в параграф и очищаем поле ввода
-          var text = input.value;
-          H1.innerHTML += text + "";
-          input.value = "";
-
-          // Удаляем input и button
-          divBlock.removeChild(input);
-          divBlock.removeChild(button);
-        };
-        divBlock.appendChild(input);
-        divBlock.appendChild(button);
-        // Добавляем новый блок в контейнер
-        const container = document("blocks-container");
-        container.appendChild(divBlock);
-        divBlock.appendChild(deleteButton);
-      }
-
-      function addIdToBlock(blockId) {
-        const block = document(blockId);
-        if (block) {
-          const idInput = prompt("Введите id для блока:");
-          block.id = idInput;
-        } else {
-          alert("Блок не найден.");
-        }
-      }
-
-      // Пример использования:
-      createBlock(blockCounter); // Создание блока с текстом
-      blockCounter++; // Увеличение счетчика блоков
-
-      createBlock_H1(blockCounter); // Создание блока с заголовком
-      blockCounter++; // Увеличение счетчика блоков
-
-      // Добавление id к блокам по кнопке "Добавить id"
-      const addIdButton = document("add-id-button");
-      addIdButton.addEventListener("click", function () {
-        const blockId = prompt("Введите id блока:");
-        addIdToBlock(blockId);
-      });
+      window.addEventListener("load", transformElements);
     </script>
   </body>
 </html>
