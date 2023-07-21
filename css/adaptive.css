@@ -48,6 +48,17 @@
     width: 396px;
     height: 214px;
   }
+
+  .wrapper {
+    width: 760px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .activet {
+    width: 700px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -119,6 +130,14 @@
     width: 265px;
     height: 126px;
   }
+
+  /* .wrapper {
+    width: 760px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } */
 }
 
 @media screen and (max-width: 480px) {
@@ -179,6 +198,39 @@
   footer img {
     display: none;
   }
+
+  .wrapper {
+    width: 403px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .signInForm {
+    width: 403px;
+    height: 377px;
+    gap: 64px;
+    padding: 52px 37px;
+  }
+  .activet {
+    width: 403px;
+  }
+  .signInForm h1 {
+    color: #fff;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .inputBtn_signInForm input,
+  .inputBtn_signInForm button {
+    width: 333px;
+    height: 40px;
+  }
+  .inputBtn_signInForm {
+    gap: 30px;
+  }
 }
 
 @media screen and (max-width: 360px) {
@@ -186,5 +238,134 @@
   main,
   footer {
     width: 280px;
+  }
+  header {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .mainInfo {
+    width: 280px;
+  }
+  .blockDesc {
+    padding: 13px 16px;
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+  .blockDesc p {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .coursesBlocks {
+    margin-top: 20px;
+    gap: 20px;
+    font-size: 18px;
+  }
+  .coursesBlocks a {
+    border-radius: 7px;
+    border: 1px rgba(224, 224, 224, 1) solid;
+    margin-bottom: 20px;
+    padding: 0 10px;
+    height: 97px;
+    overflow: hidden;
+    padding: 5px 10px;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: relative;
+  }
+  .courseDesc {
+    all: initial;
+    color: rgba(224, 224, 224, 1);
+    font-size: 14px;
+  }
+  .courseBlock h3 {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  a h3 {
+    width: 138px;
+    height: 22px;
+    position: absolute;
+    top: 35%;
+    left: 28%;
+  }
+  .coursesBlocks a:hover {
+    /* background-color: rgba(47, 47, 47, 0.8); */
+    background-color: rgba(31, 30, 30, 0.3);
+  }
+  .coursesBlocks a:active {
+    /* background-color: rgba(47, 47, 47, 0.8); */
+    background-color: rgba(31, 30, 30, 0.9);
+  }
+  .textDesc {
+    font-size: 14px;
+    opacity: 0.3; /* Здесь 0.7 указывает на прозрачность текста (от 0 до 1) */
+  }
+  /* .textDesc:hover {
+    opacity: 0.2;
+  }
+  .textDesc:active {
+    opacity: 0.5;
+  }
+  h3:hover {
+    opacity: 1;
+  }
+  h3:active {
+    opacity: 1;
+  } */
+
+  footer {
+    background-image: url("../assets/footer360px.png");
+    width: 280px;
+    height: 115px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+  footer h3 {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    padding: 23px;
+  }
+
+  .wrapper {
+    width: 280px;
+
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .signInForm {
+    width: 280px;
+    height: 329px;
+    gap: 40px;
+    padding: 25px 40px;
+    margin-top: 80px;
+  }
+  .activet {
+    width: 280px;
+  }
+  .signInForm h1 {
+    color: #fff;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .inputBtn_signInForm input,
+  .inputBtn_signInForm button {
+    width: 230px;
+    height: 30px;
+  }
+
+  .inputBtn_signInForm input {
+    padding: 9px 13px;
+  }
+  .inputBtn_signInForm {
+    gap: 40px;
   }
 }
