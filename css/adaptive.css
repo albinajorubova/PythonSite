@@ -59,6 +59,11 @@
   .activet {
     width: 700px;
   }
+
+  .searchBasics input,
+  .theme {
+    width: 760px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -138,6 +143,14 @@
     align-items: center;
     justify-content: center;
   } */
+
+  .searchBasics input,
+  .theme {
+    width: 568px;
+  }
+  .searchBasics button {
+    left: 81.5%;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -230,6 +243,54 @@
   }
   .inputBtn_signInForm {
     gap: 30px;
+  }
+  .searchBasics input,
+  .theme {
+    width: 400px;
+    height: 30px;
+  }
+
+  .lock img {
+    width: 11px;
+    height: 16px;
+  }
+  .searchBasics button {
+    left: 81.5%;
+    padding: 7.5px 28px;
+  }
+
+  .leaftTheme,
+  .leaftTheme p {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .leaftTheme img {
+    width: 13.333px;
+    height: 15px;
+  }
+
+  .basicsMainImg {
+    width: 57px !important;
+    height: 70.799px !important;
+  }
+  .pageTitle {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .searchBasics button {
+    left: 77%;
+    padding: 7.5px 28px;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .basicsHead {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
   }
 }
 
@@ -367,5 +428,25 @@
   }
   .inputBtn_signInForm {
     gap: 40px;
+  }
+
+  .searchBasics input,
+  .theme {
+    width: 280px;
+    height: 30px;
+  }
+
+  .leaftTheme,
+  .leaftTheme p {
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .leaftTheme img {
+    width: 13.333px;
+    height: 15px;
+  }
+  .searchBasics button {
+    left: 67.5%;
   }
 }
