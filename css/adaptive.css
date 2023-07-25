@@ -64,6 +64,35 @@
   .theme {
     width: 760px;
   }
+  .example_designation {
+    width: auto;
+    height: auto;
+    padding: 26px 15px 26px 47px;
+  }
+  .explanation_designation {
+    width: auto;
+    height: auto;
+  }
+  .lessons_designation {
+    gap: 19.35px;
+  }
+  .nav_lesson {
+    width: auto;
+  }
+  .codeExample img {
+    width: 740px;
+    height: 697px;
+  }
+  .btnQuestion {
+    padding: 15px 275px;
+  }
+  .sendRequestBlock {
+    width: 760px;
+    height: 104px;
+  }
+  .inputQuestion {
+    width: 760px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -151,6 +180,67 @@
   .searchBasics button {
     left: 81.5%;
   }
+  .intro {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .page_intro {
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .pageTitle {
+    width: auto;
+  }
+  .mainSize h3 {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .explanation_designation img {
+    width: 11px;
+    height: 17.6px;
+  }
+
+  .explanation_designation {
+    padding: 16px 29px 16px 36px;
+  }
+  .introductionBlock p {
+    font-weight: 400;
+  }
+  .nav_lesson p {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .nav_lesson img {
+    width: 18.23px;
+    height: 14.814px;
+  }
+  .nav_lesson {
+    padding: 11px 18px;
+  }
+  .codeExample img {
+    width: 548px;
+    height: 698.274px;
+  }
+  .btnQuestion {
+    padding: 15px 179px;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .sendRequestBlock,
+  .inputQuestion {
+    width: 567px;
+    height: 104px;
+  }
+  .iconSend {
+    position: relative;
+    top: 70%;
+    left: 93%;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -163,8 +253,8 @@
     font-size: 18px;
   }
   .captionMain img {
-    width: 24px;
-    height: 19px;
+    width: 24px !important;
+    height: 19px !important;
   }
   .imgMainInfo {
     display: none;
@@ -251,8 +341,8 @@
   }
 
   .lock img {
-    width: 11px;
-    height: 16px;
+    width: 11px !important;
+    height: 16px !important;
   }
   .searchBasics button {
     left: 81.5%;
@@ -266,8 +356,8 @@
     font-weight: 600;
   }
   .leaftTheme img {
-    width: 13.333px;
-    height: 15px;
+    width: 13.333px !important;
+    height: 15px !important;
   }
 
   .basicsMainImg {
@@ -292,6 +382,88 @@
     font-style: normal;
     font-weight: 600;
   }
+  .introductionBlock {
+    gap: 30px;
+  }
+
+  .intro {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  main img {
+    width: 63px !important;
+    height: 72px !important;
+  }
+  .page_intro {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .designation p {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .example_designation {
+    padding: 15px 24px;
+  }
+  .example_designation p {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .explanation_designation {
+    padding: 13px 24px;
+  }
+  .explanation_designation img {
+    width: 11px !important;
+    height: 17.6px !important;
+  }
+  .introductionBlock p {
+    font-size: 10px;
+  }
+  .nav_lesson p {
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .nav_lesson img {
+    width: 13px !important;
+    height: 10.564px !important;
+  }
+  .nav_lesson {
+    padding: 9px 11px;
+    gap: 10px;
+  }
+
+  .lessons_designation {
+    gap: 10px;
+  }
+  .codeExample img {
+    width: 380px !important;
+    height: 484px !important;
+  }
+  .btnQuestion {
+    padding: 14px 137px;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .sendRequestBlock,
+  .inputQuestion {
+    width: 400px;
+    height: 96px;
+  }
+  .iconSend {
+    position: relative;
+    top: 70%;
+    left: 90%;
+  }
+  .sendRequestBlock img {
+    width: 15.466px !important;
+    height: 12px !important;
+  }
 }
 
 @media screen and (max-width: 360px) {
@@ -305,6 +477,7 @@
     font-style: normal;
     font-weight: 600;
   }
+
   .mainInfo {
     width: 280px;
   }
@@ -443,10 +616,93 @@
     font-weight: 600;
   }
   .leaftTheme img {
-    width: 13.333px;
-    height: 15px;
+    width: 13.333px !important;
+    height: 15px !important;
   }
   .searchBasics button {
     left: 67.5%;
+  }
+
+  .intro {
+    font-size: 10px !important;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .introHead {
+    gap: 54px;
+  }
+  main img {
+    width: 63px !important;
+    height: 72px !important;
+  }
+  .page_intro {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .designation p {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .example_designation {
+    padding: 13px 14px;
+  }
+  .example_designation p {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .explanation_designation {
+    padding: 14px;
+  }
+  .explanation_designation img {
+    width: 11px !important;
+    height: 17.6px !important;
+  }
+  .introductionBlock p {
+    font-size: 10px;
+  }
+  .nav_lesson p {
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .nav_lesson img {
+    width: 13px !important;
+    height: 10.564px !important;
+  }
+  .nav_lesson {
+    padding: 8px 6px;
+    gap: 10px;
+    width: 31%;
+  }
+
+  .lessons_designation {
+    gap: 9px;
+  }
+  .codeExample img {
+    width: 260px !important;
+    height: 330px !important;
+  }
+  .btnQuestion {
+    padding: 6px 77px;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .sendRequestBlock,
+  .inputQuestion {
+    width: 280px;
+    height: 96px;
+  }
+  .iconSend {
+    position: relative;
+    top: 70%;
+    left: 89%;
+  }
+  .sendRequestBlock img {
+    width: 15.466px !important;
+    height: 12px !important;
   }
 }
